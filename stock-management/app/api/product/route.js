@@ -14,14 +14,19 @@ export async function GET(request) {
         
         // Queries for a movie that has a title value of 'Back to the Future'
         const query = { };
-        const allProducts = await inventory.find(query).toArray();
+        const products = await inventory.find(query).toArray();
         
-        return NextResponse.json({allProducts})
+        return NextResponse.json({success:true,products})
     } finally {
         await client.close();
     }
     
 }
+
+
+
+
+
 export async function POST(request) {
 
     let body=await request.json()

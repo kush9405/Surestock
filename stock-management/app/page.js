@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Header from "@/components/Header";
 
 export default function Home() {
+
   const [productForm, setProductForm] = useState({ productName: '', sku: '', quantity: '', location: '' });
   const [stock, setStock] = useState([]); // Initial state is an empty array
   const [searchQuery, setSearchQuery] = useState('');
@@ -15,6 +16,7 @@ export default function Home() {
       const response = await fetch('/api/product');
       if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
+      // console.log(type(data.products))
       // **FIX 2: Safer Data Handling**
       // Only update state if data.products is actually an array
       if (Array.isArray(data.products)) {
@@ -112,8 +114,8 @@ export default function Home() {
               </tr>
             </thead>
             <tbody>
-              {filteredStock.map((product) => (
-                <tr key={product.sku} className="bg-white border-b hover:bg-gray-50">
+              {filteredStock.map((product, index) => (
+                <tr key={(product._id || product.sku) + '-' + index} className="bg-white border-b hover:bg-gray-50">
                   <th scope="row" className="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">{product.productName}</th>
                   <td className="py-4 px-6">{product.sku}</td>
                   <td className="py-4 px-6">{product.quantity}</td>
