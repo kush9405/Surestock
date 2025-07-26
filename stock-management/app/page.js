@@ -86,7 +86,7 @@ export default function Home() {
           {/* Form fields... */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div><label htmlFor="productName" className="block text-sm font-medium text-gray-700">Product Name</label><input name="productName" type="text" id="productName" value={productForm.productName} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required /></div>
-            <div><label htmlFor="sku" className="block text-sm font-medium text-gray-700">SKU</label><input type="text" name="sku" id="sku" value={productForm.sku} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required /></div>
+            <div><label htmlFor="sku" className="block text-sm font-medium text-gray-700">Company</label><input type="text" name="sku" id="sku" value={productForm.sku} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required /></div>
             <div><label htmlFor="quantity" className="block text-sm font-medium text-gray-700">Quantity</label><input type="number" name='quantity' id="quantity" value={productForm.quantity} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" min="0" required /></div>
             <div><label htmlFor="location" className="block text-sm font-medium text-gray-700">Location</label><select name="location" id="location" value={productForm.location} onChange={handleChange} className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" required><option value="">Select a location</option><option value="Warehouse">Warehouse</option><option value="Showroom">Showroom</option></select></div>
           </div>
@@ -108,7 +108,7 @@ export default function Home() {
             <thead className="text-xs text-gray-700 uppercase bg-gray-200">
               <tr>
                 <th scope="col" className="py-3 px-6">Product Name</th>
-                <th scope="col" className="py-3 px-6">SKU</th>
+                <th scope="col" className="py-3 px-6">Company</th>
                 <th scope="col" className="py-3 px-6">Quantity</th>
                 <th scope="col" className="py-3 px-6">Location</th>
               </tr>
