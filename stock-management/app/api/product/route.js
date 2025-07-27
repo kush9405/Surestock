@@ -2,6 +2,19 @@ import { NextResponse } from "next/server";
 const { MongoClient } = require("mongodb");
 
 export async function GET(request) {
+    // Get organization from query parameters
+    const { searchParams } = new URL(request.url);
+    const orgId = searchParams.get('orgId') || 'bishnu';
+    
+    // Map organization ID to database name
+    const databaseMap = {
+        'bishnu': 'BishnuFurniture',
+        'surestock': 'SureStockDB',
+        'inventory': 'InventoryProDB'
+    };
+    
+    const databaseName = databaseMap[orgId] || 'BishnuFurniture';
+    
     // Replace the uri string with your connection string
     const uri = "mongodb+srv://kush:kush@inventorymanagement.cyn3nhp.mongodb.net/?retryWrites=true&w=majority&ssl=true&tls=true";
     
@@ -16,10 +29,9 @@ export async function GET(request) {
     
     
     try {
-        const database = client.db('BishnuFurniture');
+        const database = client.db(databaseName);
         const inventory = database.collection('Inventory');
         
-        // Queries for a movie that has a title value of 'Back to the Future'
         const query = { };
         const products = await inventory.find(query).toArray();
         
@@ -35,8 +47,20 @@ export async function GET(request) {
 
 
 export async function POST(request) {
-
-    let body=await request.json()
+    let body = await request.json();
+    
+    // Get organization from request body or default to bishnu
+    const orgId = body.orgId || 'bishnu';
+    
+    // Map organization ID to database name
+    const databaseMap = {
+        'bishnu': 'BishnuFurniture',
+        'surestock': 'SureStockDB',
+        'inventory': 'InventoryProDB'
+    };
+    
+    const databaseName = databaseMap[orgId] || 'BishnuFurniture';
+    
     // Replace the uri string with your connection string
     const uri = "mongodb+srv://kush:kush@inventorymanagement.cyn3nhp.mongodb.net/?retryWrites=true&w=majority&ssl=true&tls=true";
     console.log(body)
@@ -51,11 +75,9 @@ export async function POST(request) {
     
     
     try {
-        const database = client.db('BishnuFurniture');
+        const database = client.db(databaseName);
         const inventory = database.collection('Inventory');
         
-        // Queries for a movie that has a title value of 'Back to the Future'
-        const query = { };
         const products = await inventory.insertOne(body); 
         
         return NextResponse.json({products,ok:true})
