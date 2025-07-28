@@ -8,7 +8,7 @@ const LoginModal = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: '',
-    organizationId: ''
+    organizationId: 'bishnu'
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -39,7 +39,7 @@ const LoginModal = () => {
 
   const closeModal = () => {
     setShowLoginModal(false);
-    setFormData({ email: '', password: '', organizationId: '' });
+    setFormData({ email: '', password: '', organizationId: 'bishnu' });
     setError('');
   };
 
@@ -61,7 +61,7 @@ const LoginModal = () => {
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Organization Selection */}
-            <div>
+            {/* <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Organization
               </label>
@@ -79,12 +79,12 @@ const LoginModal = () => {
                   </option>
                 ))}
               </select>
-            </div>
+            </div> */}
 
             {/* Email */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Email
+                Username
               </label>
               <input
                 type="text"
@@ -92,7 +92,7 @@ const LoginModal = () => {
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm"
-                placeholder="Enter your email"
+                placeholder="Enter your Username"
                 required
               />
             </div>
@@ -108,7 +108,7 @@ const LoginModal = () => {
                 value={formData.password}
                 onChange={handleChange}
                 className="w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm"
-                placeholder="Enter your password"
+                placeholder="Enter your Password"
                 required
               />
             </div>
@@ -131,7 +131,7 @@ const LoginModal = () => {
           </form>
 
           {/* Demo Credentials */}
-          <div className="mt-4 p-3 bg-gray-50 rounded-md">
+          {/* <div className="mt-4 p-3 bg-gray-50 rounded-md">
             <h4 className="text-sm font-medium text-gray-700 mb-2">Demo Credentials:</h4>
             <div className="text-xs text-gray-600 space-y-1">
               <div><strong>Bishnu Furniture:</strong></div>
@@ -144,7 +144,7 @@ const LoginModal = () => {
               <div className="mt-2"><strong>Inventory Pro:</strong></div>
               <div>• admin@inventory.com / admin123</div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
