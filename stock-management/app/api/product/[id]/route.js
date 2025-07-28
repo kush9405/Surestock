@@ -5,7 +5,7 @@ export async function PUT(request, { params }) {
     const { id } = await params;
     const body = await request.json();
     
-    const uri = "mongodb+srv://kush:kush@inventorymanagement.cyn3nhp.mongodb.net/?retryWrites=true&w=majority&ssl=true&tls=true";
+    const uri = process.env.MONGODB_URI;
     
     const client = new MongoClient(uri, {
         ssl: true,
@@ -42,7 +42,7 @@ export async function PUT(request, { params }) {
 export async function DELETE(request, { params }) {
     const { id } = await params;
     
-    const uri = "mongodb+srv://kush:kush@inventorymanagement.cyn3nhp.mongodb.net/?retryWrites=true&w=majority&ssl=true&tls=true";
+    const uri = process.env.MONGODB_URI;
     
     const client = new MongoClient(uri, {
         ssl: true,

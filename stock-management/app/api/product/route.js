@@ -16,7 +16,7 @@ export async function GET(request) {
     const databaseName = databaseMap[orgId] || 'BishnuFurniture';
     
     // Replace the uri string with your connection string
-    const uri = "mongodb+srv://kush:kush@inventorymanagement.cyn3nhp.mongodb.net/?retryWrites=true&w=majority&ssl=true&tls=true";
+    const uri = process.env.MONGODB_URI;
     
     const client = new MongoClient(uri, {
         ssl: true,
@@ -62,7 +62,7 @@ export async function POST(request) {
     const databaseName = databaseMap[orgId] || 'BishnuFurniture';
     
     // Replace the uri string with your connection string
-    const uri = "mongodb+srv://kush:kush@inventorymanagement.cyn3nhp.mongodb.net/?retryWrites=true&w=majority&ssl=true&tls=true";
+    const uri = process.env.MONGODB_URI;
     console.log(body)
     const client = new MongoClient(uri, {
         ssl: true,
