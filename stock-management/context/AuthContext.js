@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
       logo: '🪑',
       database: 'BishnuFurniture',
       users: [
-        { email: 'admin@bishnu.com', password: 'admin123', name: 'Admin User', role: 'Administrator' },
+        { email: '9405', password: '9405', name: 'Admin User', role: 'Administrator' },
 
       ]
     }

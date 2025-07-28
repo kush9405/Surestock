@@ -87,7 +87,7 @@ const LoginModal = () => {
                 Email
               </label>
               <input
-                type="email"
+                type="text"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
